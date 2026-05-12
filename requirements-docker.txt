@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+requests
+
+crewai
+google-genai
+google-generativeai
+
+langchain-core
+langchain-community
+
+faiss-cpu
+scikit-learn
+numpy
