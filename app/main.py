@@ -3,14 +3,10 @@ import streamlit as st
 from dotenv import load_dotenv
 import google.generativeai as genai
 
-# -----------------------------------
 # Load environment variables
-# -----------------------------------
 load_dotenv()
 
-# -----------------------------------
 # Streamlit page config (FAST)
-# -----------------------------------
 st.set_page_config(
     page_title="Enterprise Customer Support",
     layout="centered"
@@ -18,9 +14,7 @@ st.set_page_config(
 
 st.title("Enterprise Customer Support")
 
-# -----------------------------------
 # Lazy-load Gemini (CRITICAL FIX)
-# -----------------------------------
 @st.cache_resource
 def load_gemini():
     """
@@ -31,9 +25,7 @@ def load_gemini():
     return genai.GenerativeModel("gemini-1.5-flash")  # fast model
 
 
-# -----------------------------------
 # Cached response generation
-# -----------------------------------
 @st.cache_data(show_spinner=False)
 def generate_response(model, user_text: str) -> str:
     """
@@ -55,10 +47,7 @@ Customer message:
     response = model.generate_content(prompt)
     return response.text
 
-
-# -----------------------------------
 # UI
-# -----------------------------------
 user_input = st.text_area(
     "Enter your issue or feedback:",
     height=150
