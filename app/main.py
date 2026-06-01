@@ -22,7 +22,7 @@ def load_gemini():
     Prevents Streamlit from hanging on startup.
     """
     genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-    return genai.GenerativeModel("gemini-1.5-flash")  # fast model
+    return genai.GenerativeModel("gemini-2.5-flash")  # fast model
 
 
 # Cached response generation
